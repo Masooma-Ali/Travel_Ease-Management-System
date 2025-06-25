@@ -1,5 +1,6 @@
+----- DDL commands  ------
+create database travelease
 use travelease;
-
 
 -----------------USER TABLE
 CREATE TABLE USERS (
@@ -45,7 +46,7 @@ VALUES
 ('traveler6@gmail.com', 'Password123!', '+123456789019', '1995-07-19', 'Male', 'Peshawar', 'KPK', 'Pakistan', 'Bilal', 'S.', 'Jan', 'Traveler'),
 ('traveler7@gmail.com', 'Password123!', '+123456789020', '1996-08-20', 'Female', 'Quetta', 'Balochistan', 'Pakistan', 'Zara', 'T.', 'Shah', 'Traveler'),
 ('touroperator1@gmail.com', 'Password123!', '+123456789006', '1980-06-06', 'Female', 'London', 'England', 'UK', 'Emma', 'F.', 'Stone', 'TourOperator'),
-('touroperator2@gmail.com', 'Password123!', '+123456789007', '1981-07-07', 'Male', 'Paris', 'Île-de-France', 'France', 'Luc', 'G.', 'Dubois', 'TourOperator'),
+('touroperator2@gmail.com', 'Password123!', '+123456789007', '1981-07-07', 'Male', 'Paris', 'ÃŽle-de-France', 'France', 'Luc', 'G.', 'Dubois', 'TourOperator'),
 ('touroperator3@gmail.com', 'Password123!', '+123456789008', '1982-08-08', 'Female', 'Berlin', 'Berlin', 'Germany', 'Anna', 'H.', 'Schmidt', 'TourOperator'),
 ('touroperator4@gmail.com', 'Password123!', '+123456789009', '1983-09-09', 'Male', 'Rome', 'Lazio', 'Italy', 'Marco', 'I.', 'Rossi', 'TourOperator'),
 ('touroperator5@gmail.com', 'Password123!', '+123456789010', '1984-10-10', 'Female', 'Madrid', 'Community of Madrid', 'Spain', 'Maria', 'J.', 'Lopez', 'TourOperator'),
@@ -1155,26 +1156,4 @@ SELECT * FROM AuditLog
 
 
 
-DROP TABLE IF EXISTS Review;
-DROP TABLE IF EXISTS ReviewTargetType;
-DROP TABLE IF EXISTS ReviewStatus;
-DROP TABLE IF EXISTS TripHistory;
-DROP TABLE IF EXISTS AssignedServices;
-DROP TABLE IF EXISTS Bookings;
-DROP TABLE IF EXISTS Hotel;
-DROP TABLE IF EXISTS Food;
-DROP TABLE IF EXISTS PersonalGuide;
-DROP TABLE IF EXISTS Transport;
-DROP TABLE IF EXISTS ProviderServiceTypes;
-DROP TABLE IF EXISTS ServiceProvider;
-DROP TABLE IF EXISTS Admins;
-DROP TABLE IF EXISTS TourOperator;
-DROP TABLE IF EXISTS Traveler;
-DROP TABLE IF EXISTS Trip;
-DROP TABLE IF EXISTS Destination;
-DROP TABLE IF EXISTS TripCategory;
-DROP TABLE IF EXISTS Users;
-DROP view IF EXISTS vw_TravelerDemographics;
-DROP view IF EXISTS vw_TripBookingRevenueReport;
-DROP TABLE IF EXISTS AuditLog
 
