@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="destinationData" targetNamespace="http://tempuri.org/destinationData.xsd" xmlns:mstns="http://tempuri.org/destinationData.xsd" xmlns="http://tempuri.org/destinationData.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="destinationData" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="destinationData" msprop:Generator_DataSetName="destinationData">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DestinationReport" msprop:Generator_RowEvHandlerName="DestinationReportRowChangeEventHandler" msprop:Generator_RowDeletedName="DestinationReportRowDeleted" msprop:Generator_RowDeletingName="DestinationReportRowDeleting" msprop:Generator_RowEvArgName="DestinationReportRowChangeEvent" msprop:Generator_TablePropName="DestinationReport" msprop:Generator_RowChangedName="DestinationReportRowChanged" msprop:Generator_RowChangingName="DestinationReportRowChanging" msprop:Generator_TableClassName="DestinationReportDataTable" msprop:Generator_RowClassName="DestinationReportRow" msprop:Generator_TableVarName="tableDestinationReport" msprop:Generator_UserTableName="DestinationReport">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DestinationName" msprop:Generator_ColumnPropNameInRow="DestinationName" msprop:Generator_ColumnPropNameInTable="DestinationNameColumn" msprop:Generator_ColumnVarNameInTable="columnDestinationName" msprop:Generator_UserColumnName="DestinationName" type="xs:string" minOccurs="0" />
+              <xs:element name="TotalBookings" msprop:Generator_ColumnPropNameInRow="TotalBookings" msprop:Generator_ColumnPropNameInTable="TotalBookingsColumn" msprop:Generator_ColumnVarNameInTable="columnTotalBookings" msprop:Generator_UserColumnName="TotalBookings" type="xs:int" minOccurs="0" />
+              <xs:element name="BookingMonth" msprop:Generator_ColumnPropNameInRow="BookingMonth" msprop:Generator_ColumnPropNameInTable="BookingMonthColumn" msprop:Generator_ColumnVarNameInTable="columnBookingMonth" msprop:Generator_UserColumnName="BookingMonth" type="xs:string" minOccurs="0" />
+              <xs:element name="MonthNumber" msprop:Generator_ColumnPropNameInRow="MonthNumber" msprop:Generator_ColumnPropNameInTable="MonthNumberColumn" msprop:Generator_ColumnVarNameInTable="columnMonthNumber" msprop:Generator_UserColumnName="MonthNumber" type="xs:int" minOccurs="0" />
+              <xs:element name="AvgRatting" msprop:Generator_ColumnPropNameInRow="AvgRatting" msprop:Generator_ColumnPropNameInTable="AvgRattingColumn" msprop:Generator_ColumnVarNameInTable="columnAvgRatting" msprop:Generator_UserColumnName="AvgRatting" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

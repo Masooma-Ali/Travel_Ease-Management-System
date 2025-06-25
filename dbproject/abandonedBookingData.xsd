@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="abandonedBookingData" targetNamespace="http://tempuri.org/abandonedBookingData.xsd" xmlns:mstns="http://tempuri.org/abandonedBookingData.xsd" xmlns="http://tempuri.org/abandonedBookingData.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="abandonedBookingData" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="abandonedBookingData" msprop:Generator_DataSetName="abandonedBookingData">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="AbandonedBookings" msprop:Generator_RowEvHandlerName="AbandonedBookingsRowChangeEventHandler" msprop:Generator_RowDeletedName="AbandonedBookingsRowDeleted" msprop:Generator_RowDeletingName="AbandonedBookingsRowDeleting" msprop:Generator_RowEvArgName="AbandonedBookingsRowChangeEvent" msprop:Generator_TablePropName="AbandonedBookings" msprop:Generator_RowChangedName="AbandonedBookingsRowChanged" msprop:Generator_RowChangingName="AbandonedBookingsRowChanging" msprop:Generator_TableClassName="AbandonedBookingsDataTable" msprop:Generator_RowClassName="AbandonedBookingsRow" msprop:Generator_TableVarName="tableAbandonedBookings" msprop:Generator_UserTableName="AbandonedBookings">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="TotalBookings" msprop:Generator_ColumnPropNameInRow="TotalBookings" msprop:Generator_ColumnPropNameInTable="TotalBookingsColumn" msprop:Generator_ColumnVarNameInTable="columnTotalBookings" msprop:Generator_UserColumnName="TotalBookings" type="xs:int" minOccurs="0" />
+              <xs:element name="AbandonedBookings" msprop:Generator_ColumnPropNameInRow="AbandonedBookings" msprop:Generator_ColumnPropNameInTable="AbandonedBookingsColumn" msprop:Generator_ColumnVarNameInTable="columnAbandonedBookings" msprop:Generator_UserColumnName="AbandonedBookings" type="xs:int" minOccurs="0" />
+              <xs:element name="RevenueLoss" msprop:Generator_ColumnPropNameInRow="RevenueLoss" msprop:Generator_ColumnPropNameInTable="RevenueLossColumn" msprop:Generator_ColumnVarNameInTable="columnRevenueLoss" msprop:Generator_UserColumnName="RevenueLoss" type="xs:decimal" minOccurs="0" />
+              <xs:element name="RecoveredBookings" msprop:Generator_ColumnPropNameInRow="RecoveredBookings" msprop:Generator_ColumnPropNameInTable="RecoveredBookingsColumn" msprop:Generator_ColumnVarNameInTable="columnRecoveredBookings" msprop:Generator_UserColumnName="RecoveredBookings" type="xs:int" minOccurs="0" />
+              <xs:element name="BookingID" msprop:Generator_ColumnPropNameInRow="BookingID" msprop:Generator_ColumnPropNameInTable="BookingIDColumn" msprop:Generator_ColumnVarNameInTable="columnBookingID" msprop:Generator_UserColumnName="BookingID" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

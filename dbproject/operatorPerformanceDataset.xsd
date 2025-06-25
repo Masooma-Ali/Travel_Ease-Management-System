@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="operatorPerformanceDataset" targetNamespace="http://tempuri.org/operatorPerformanceDataset.xsd" xmlns:mstns="http://tempuri.org/operatorPerformanceDataset.xsd" xmlns="http://tempuri.org/operatorPerformanceDataset.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="traveleaseConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="traveleaseConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.dbproject.Properties.Settings.GlobalReference.Default.traveleaseConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="operatorPerformanceDataset" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="operatorPerformanceDataset" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="operatorPerformanceDataset">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="OperatorPerformance" msprop:Generator_RowClassName="OperatorPerformanceRow" msprop:Generator_RowEvHandlerName="OperatorPerformanceRowChangeEventHandler" msprop:Generator_RowDeletedName="OperatorPerformanceRowDeleted" msprop:Generator_RowDeletingName="OperatorPerformanceRowDeleting" msprop:Generator_RowEvArgName="OperatorPerformanceRowChangeEvent" msprop:Generator_TablePropName="OperatorPerformance" msprop:Generator_RowChangedName="OperatorPerformanceRowChanged" msprop:Generator_UserTableName="OperatorPerformance" msprop:Generator_RowChangingName="OperatorPerformanceRowChanging" msprop:Generator_TableClassName="OperatorPerformanceDataTable" msprop:Generator_TableVarName="tableOperatorPerformance">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="OperatorID" msprop:Generator_UserColumnName="OperatorID" msprop:Generator_ColumnPropNameInTable="OperatorIDColumn" msprop:Generator_ColumnPropNameInRow="OperatorID" msprop:Generator_ColumnVarNameInTable="columnOperatorID" type="xs:int" minOccurs="0" />
+              <xs:element name="OperatorName" msprop:Generator_UserColumnName="OperatorName" msprop:Generator_ColumnPropNameInTable="OperatorNameColumn" msprop:Generator_ColumnPropNameInRow="OperatorName" msprop:Generator_ColumnVarNameInTable="columnOperatorName" type="xs:string" minOccurs="0" />
+              <xs:element name="AvgRating" msprop:Generator_UserColumnName="AvgRating" msprop:Generator_ColumnPropNameInTable="AvgRatingColumn" msprop:Generator_ColumnPropNameInRow="AvgRating" msprop:Generator_ColumnVarNameInTable="columnAvgRating" type="xs:double" minOccurs="0" />
+              <xs:element name="TotalRevenue" msprop:Generator_UserColumnName="TotalRevenue" msprop:Generator_ColumnPropNameInTable="TotalRevenueColumn" msprop:Generator_ColumnPropNameInRow="TotalRevenue" msprop:Generator_ColumnVarNameInTable="columnTotalRevenue" type="xs:decimal" minOccurs="0" />
+              <xs:element name="AvgResponseTime" msprop:Generator_UserColumnName="AvgResponseTime" msprop:Generator_ColumnPropNameInTable="AvgResponseTimeColumn" msprop:Generator_ColumnPropNameInRow="AvgResponseTime" msprop:Generator_ColumnVarNameInTable="columnAvgResponseTime" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

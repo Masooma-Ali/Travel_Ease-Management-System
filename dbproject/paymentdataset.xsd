@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="paymentdataset" targetNamespace="http://tempuri.org/paymentdataset.xsd" xmlns:mstns="http://tempuri.org/paymentdataset.xsd" xmlns="http://tempuri.org/paymentdataset.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+	<xs:annotation>
+		<xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+			<DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+				<Connections>
+					<Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="latestdbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="latestdbConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.db_f.Properties.Settings.GlobalReference.Default.latestdbConnectionString" Provider="System.Data.SqlClient" />
+				</Connections>
+				<Tables>
+					<TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="paymentsuccessTableAdapter" GeneratorDataComponentClassName="paymentsuccessTableAdapter" Name="paymentsuccess" UserDataComponentName="paymentsuccessTableAdapter">
+						<MainSource>
+							<DbSource ConnectionRef="latestdbConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+								<SelectCommand>
+									<DbCommand CommandType="Text" ModifiedByUser="true">
+										<CommandText>
+											SELECT 'Success' AS Label, CAST(SUM(CASE WHEN PaymentStatus = 'Paid' THEN 1 ELSE 0 END) * 100.0 / COUNT(*) AS DECIMAL(5,2)) AS Rate
+											FROM Bookings
+											UNION ALL
+											SELECT 'Failure', CAST(SUM(CASE WHEN PaymentStatus = 'Unpaid' THEN 1 ELSE 0 END) * 100.0 / COUNT(*) AS DECIMAL(5,2)) AS Rate
+											FROM Bookings;
+										</CommandText>
+										<Parameters />
+									</DbCommand>
+								</SelectCommand>
+							</DbSource>
+						</MainSource>
+						<Mappings>
+							<Mapping SourceColumn="Label" DataSetColumn="Label" />
+							<Mapping SourceColumn="Rate" DataSetColumn="Rate" />
+						</Mappings>
+						<Sources />
+					</TableAdapter>
+					<TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="chargebackTableAdapter" GeneratorDataComponentClassName="chargebackTableAdapter" Name="chargeback" UserDataComponentName="chargebackTableAdapter">
+						<MainSource>
+							<DbSource ConnectionRef="latestdbConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+								<SelectCommand>
+									<DbCommand CommandType="Text" ModifiedByUser="true">
+										<CommandText>
+											SELECT
+											COUNT(*) AS TotalTransactions,
+											SUM(CASE WHEN PaymentStatus = 'refund' THEN 1 ELSE 0 END) AS Chargebacks,
+											CAST(
+											100.0 * SUM(CASE WHEN PaymentStatus = 'refund' THEN 1 ELSE 0 END) / NULLIF(COUNT(*), 0)
+											AS DECIMAL(5,2)
+											) AS ChargebackRate
+											FROM Bookings;
+										</CommandText>
+										<Parameters />
+									</DbCommand>
+								</SelectCommand>
+							</DbSource>
+						</MainSource>
+						<Mappings>
+							<Mapping SourceColumn="TotalTransactions" DataSetColumn="TotalTransactions" />
+							<Mapping SourceColumn="Chargebacks" DataSetColumn="Chargebacks" />
+							<Mapping SourceColumn="ChargebackRate" DataSetColumn="ChargebackRate" />
+						</Mappings>
+						<Sources />
+					</TableAdapter>
+					<TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="paycountTableAdapter" GeneratorDataComponentClassName="paycountTableAdapter" Name="paycount" UserDataComponentName="paycountTableAdapter">
+						<MainSource>
+							<DbSource ConnectionRef="latestdbConnectionString (Settings)" DbObjectName="latestdb.dbo.Bookings" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+								<SelectCommand>
+									<DbCommand CommandType="Text" ModifiedByUser="true">
+										<CommandText>
+											SELECT
+											PaymentStatus,
+											COUNT(*) AS Count
+											FROM Bookings
+											GROUP BY PaymentStatus;
+										</CommandText>
+										<Parameters />
+									</DbCommand>
+								</SelectCommand>
+							</DbSource>
+						</MainSource>
+						<Mappings>
+							<Mapping SourceColumn="PaymentStatus" DataSetColumn="PaymentStatus" />
+							<Mapping SourceColumn="Count" DataSetColumn="Count" />
+						</Mappings>
+						<Sources />
+					</TableAdapter>
+				</Tables>
+				<Sources />
+			</DataSource>
+		</xs:appinfo>
+	</xs:annotation>
+	<xs:element name="paymentdataset" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="paymentdataset" msprop:Generator_DataSetName="paymentdataset">
+		<xs:complexType>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="paymentsuccess" msprop:Generator_RowEvHandlerName="paymentsuccessRowChangeEventHandler" msprop:Generator_RowDeletedName="paymentsuccessRowDeleted" msprop:Generator_RowDeletingName="paymentsuccessRowDeleting" msprop:Generator_RowEvArgName="paymentsuccessRowChangeEvent" msprop:Generator_TablePropName="paymentsuccess" msprop:Generator_RowChangedName="paymentsuccessRowChanged" msprop:Generator_RowChangingName="paymentsuccessRowChanging" msprop:Generator_TableClassName="paymentsuccessDataTable" msprop:Generator_RowClassName="paymentsuccessRow" msprop:Generator_TableVarName="tablepaymentsuccess" msprop:Generator_UserTableName="paymentsuccess">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Label" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="Label" msprop:Generator_ColumnPropNameInTable="LabelColumn" msprop:Generator_ColumnVarNameInTable="columnLabel" msprop:Generator_UserColumnName="Label" minOccurs="0">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:maxLength value="7" />
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="Rate" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="Rate" msprop:Generator_ColumnPropNameInTable="RateColumn" msprop:Generator_ColumnVarNameInTable="columnRate" msprop:Generator_UserColumnName="Rate" type="xs:decimal" minOccurs="0" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="chargeback" msprop:Generator_RowEvHandlerName="chargebackRowChangeEventHandler" msprop:Generator_RowDeletedName="chargebackRowDeleted" msprop:Generator_RowDeletingName="chargebackRowDeleting" msprop:Generator_RowEvArgName="chargebackRowChangeEvent" msprop:Generator_TablePropName="chargeback" msprop:Generator_RowChangedName="chargebackRowChanged" msprop:Generator_RowChangingName="chargebackRowChanging" msprop:Generator_TableClassName="chargebackDataTable" msprop:Generator_RowClassName="chargebackRow" msprop:Generator_TableVarName="tablechargeback" msprop:Generator_UserTableName="chargeback">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="TotalTransactions" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="TotalTransactions" msprop:Generator_ColumnPropNameInTable="TotalTransactionsColumn" msprop:Generator_ColumnVarNameInTable="columnTotalTransactions" msprop:Generator_UserColumnName="TotalTransactions" type="xs:int" minOccurs="0" />
+							<xs:element name="Chargebacks" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="Chargebacks" msprop:Generator_ColumnPropNameInTable="ChargebacksColumn" msprop:Generator_ColumnVarNameInTable="columnChargebacks" msprop:Generator_UserColumnName="Chargebacks" type="xs:int" minOccurs="0" />
+							<xs:element name="ChargebackRate" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="ChargebackRate" msprop:Generator_ColumnPropNameInTable="ChargebackRateColumn" msprop:Generator_ColumnVarNameInTable="columnChargebackRate" msprop:Generator_UserColumnName="ChargebackRate" type="xs:decimal" minOccurs="0" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="paycount" msprop:Generator_RowEvHandlerName="paycountRowChangeEventHandler" msprop:Generator_RowDeletedName="paycountRowDeleted" msprop:Generator_RowDeletingName="paycountRowDeleting" msprop:Generator_RowEvArgName="paycountRowChangeEvent" msprop:Generator_TablePropName="paycount" msprop:Generator_RowChangedName="paycountRowChanged" msprop:Generator_RowChangingName="paycountRowChanging" msprop:Generator_TableClassName="paycountDataTable" msprop:Generator_RowClassName="paycountRow" msprop:Generator_TableVarName="tablepaycount" msprop:Generator_UserTableName="paycount">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="PaymentStatus" msprop:Generator_ColumnPropNameInRow="PaymentStatus" msprop:Generator_ColumnPropNameInTable="PaymentStatusColumn" msprop:Generator_ColumnVarNameInTable="columnPaymentStatus" msprop:Generator_UserColumnName="PaymentStatus">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:maxLength value="20" />
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="Count" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="Count" msprop:Generator_ColumnPropNameInTable="CountColumn" msprop:Generator_ColumnVarNameInTable="columnCount" msprop:Generator_UserColumnName="Count" type="xs:int" minOccurs="0" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
