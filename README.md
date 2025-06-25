@@ -15,49 +15,89 @@ TravelEase is a desktop-based travel management platform built using .NET Framew
 📂 Project Modules & Interfaces
 
 👤 Traveler Interface
+
 Registration/Login
+
 Trip search with filters
+
 Booking & itinerary management
+
 E-ticket access
+
 Trip reviews and profile management
 
+
 🧑‍💼 Tour Operator Interface
+
 Trip creation and assignment
+
 Booking management and refund handling
+
 Resource/service assignment to travelers
+
 Performance analytics
+
+
 🏨 Service Provider Interface
+
 Register and manage services (Hotel, Food, Transport, Guide)
+
 Accept/reject assigned services
+
 View bookings and availability
+
 Performance reporting
 
+
 🛠️ Admin Interface
+
 Manage and approve user/operator registrations
+
 Moderate reviews
+
 Track platform analytics
+
 Manage tour categories
 
+
 📁 Project Structure
+
 📁 TravelEase
+
 ├── 🗂️ Forms (WinForms UI)
+
 ├── 📄 .cs files (Business logic)
+
 ├── 📊 .rdlc (Report definitions)
+
 ├── 🗄️ SQL Scripts (DDL)
 
+
 ⚙️ Getting Started
+
 1.Clone the repository:
+
       git clone https://github.com/Masooma-Ali/Travel_Ease-Management-System.git
+
 2.Open the solution in Visual Studio.
+
 3.Restore required NuGet packages:
+
    -- Microsoft.Data.SqlClient
+   
    -- Microsoft.Reporting.WinForms
+
 4.Make sure SQL Server is running and the database is configured.
+
 5.Build and run the project.
 
+
 🤝 Collaborators
+
 Masooma Ali
+
 Huma Taj
+
 Fatima Shakir
 
 
